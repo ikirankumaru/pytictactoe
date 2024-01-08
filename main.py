@@ -52,7 +52,7 @@ def choose_first():
 
 def space_check(board, position):
     '''OUTPUT: Returns a boolean indicating whether a space on the board is freely available'''
-    
+
     return board[position] == ' '
 
 def full_board_check(board):
@@ -64,6 +64,20 @@ def full_board_check(board):
         
     return True
 
+def player_choice(board):
+    '''OUTPUT: Choose the next position, returns the position if its available'''
+
+    position = 0
+
+    while position not in range(1,10) or not space_check(board, position):
+        position = input('Choose your next position: (1-9) ')
+        
+        if position.isdigit():
+            position = int(position)
+    
+    return position
+
+
 test_board = ['#','X','O','X','O','X','O','X','O','X']
 # display_board(test_board)
 # print(player_input())
@@ -72,3 +86,4 @@ test_board = ['#','X','O','X','O','X','O','X','O','X']
 # print(choose_first())
 # print(space_check(test_board, 9))
 # print(full_board_check(test_board))
+# print(player_choice(test_board))
