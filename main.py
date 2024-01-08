@@ -1,3 +1,6 @@
+import random
+
+
 def display_board(board):
     '''
     OUTPUT: Show the tictactoe board
@@ -36,9 +39,21 @@ def win_check(board, mark):
         (board[1] == board[5] == board[9] == mark)
     )
 
+def choose_first():
+    '''
+    OUTPUT: Randonly decide which player goes first
+            Return a string of which player went first
+            Player 1 / Player 2
+    '''
+    if random.randint(0, 1) == 0:
+        return 'Player 2'
+    
+    return 'Player 1'
+
 
 test_board = ['#','X','O','X','O','X','O','X','O','X']
 # display_board(test_board)
 # print(player_input())
 # place_marker(test_board, '$', 8)
 # print(win_check(test_board, 'X'))
+# print(choose_first())
