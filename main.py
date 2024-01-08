@@ -50,6 +50,11 @@ def choose_first():
     
     return 'Player 1'
 
+def space_check(board, position):
+    '''OUTPUT: Returns a boolean indicating whether a space on the board is freely available'''
+    
+    return board[position] == ' '
+
 
 test_board = ['#','X','O','X','O','X','O','X','O','X']
 # display_board(test_board)
@@ -57,3 +62,4 @@ test_board = ['#','X','O','X','O','X','O','X','O','X']
 # place_marker(test_board, '$', 8)
 # print(win_check(test_board, 'X'))
 # print(choose_first())
+# print(space_check(test_board, 9))
