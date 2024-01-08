@@ -77,6 +77,11 @@ def player_choice(board):
     
     return position
 
+def replay():
+    '''OUTPUT: Return True if they do want to play again.'''
+
+    return input('Do you want to play again (y/n) ? ').lower().startswith('y')
+
 
 test_board = ['#','X','O','X','O','X','O','X','O','X']
 # display_board(test_board)
@@ -87,3 +92,4 @@ test_board = ['#','X','O','X','O','X','O','X','O','X']
 # print(space_check(test_board, 9))
 # print(full_board_check(test_board))
 # print(player_choice(test_board))
+# print(replay())
