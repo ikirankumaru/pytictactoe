@@ -55,6 +55,14 @@ def space_check(board, position):
     
     return board[position] == ' '
 
+def full_board_check(board):
+    '''OUTPUT: True if full, False otherwise.'''
+
+    for i in range(1,10):
+        if space_check(board, i):
+            return False
+        
+    return True
 
 test_board = ['#','X','O','X','O','X','O','X','O','X']
 # display_board(test_board)
@@ -63,3 +71,4 @@ test_board = ['#','X','O','X','O','X','O','X','O','X']
 # print(win_check(test_board, 'X'))
 # print(choose_first())
 # print(space_check(test_board, 9))
+# print(full_board_check(test_board))
