@@ -5,6 +5,7 @@ def display_board(board):
     '''
     OUTPUT: Show the tictactoe board
     '''
+    print('\n' * 100)
     print(board[7] + '|' + board[8] + '|' + board[9])
     print(board[4] + '|' + board[5] + '|' + board[6])
     print(board[1] + '|' + board[2] + '|' + board[3])
@@ -83,13 +84,58 @@ def replay():
     return input('Do you want to play again (y/n) ? ').lower().startswith('y')
 
 
-test_board = ['#','X','O','X','O','X','O','X','O','X']
-# display_board(test_board)
-# print(player_input())
-# place_marker(test_board, '$', 8)
-# print(win_check(test_board, 'X'))
-# print(choose_first())
-# print(space_check(test_board, 9))
-# print(full_board_check(test_board))
-# print(player_choice(test_board))
-# print(replay())
+print('Welcome to Tic Tac Toe!')
+
+while True:
+
+    board = [' '] * 10
+    player1_marker, player2_marker = player_input()
+    game_on = False
+    turn = choose_first()
+    print(turn + ' will go first.')
+
+    play_game = input('Are you ready to play game? (y/n) ')
+
+    if play_game.lower()[0] == 'y':
+        game_on = True
+        
+    while game_on:
+        if turn == 'Player 1':
+            # Player1's turn.
+
+            display_board(board)
+            position = player_choice(board)
+            place_marker(board, player1_marker, position)
+
+            if win_check(board, player1_marker):
+                display_board(board)
+                print('Player1 has won the game!')
+                game_on = False
+            else:
+                if full_board_check(board):
+                    display_board(board)
+                    print('The game is a draw!')
+                    break
+                else:
+                    turn = 'Player 2'
+        else:
+            # Player2's turn.
+
+            display_board(board)
+            position = player_choice(board)
+            place_marker(board, player2_marker, position)
+
+            if win_check(board, player2_marker):
+                display_board(board)
+                print('Player2 has won the game!')
+                game_on = False
+            else:
+                if full_board_check(board):
+                    display_board(board)
+                    print('The game is a draw!')
+                    break
+                else:
+                    turn = 'Player 1'
+
+    if not replay():
+        break
